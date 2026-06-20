@@ -1,0 +1,27 @@
+{
+  "name": "expense-tracker",
+  "version": "1.0.0",
+  "description": "Expense Tracker - HTML/CSS/JS + Node.js/Express + MySQL (Tugas UKPL)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "jest --runInBand",
+    "test:whitebox": "jest tests/whitebox --runInBand",
+    "test:blackbox": "jest tests/blackbox --runInBand",
+    "test:integration": "jest tests/integration --runInBand",
+    "test:load": "jest tests/load --runInBand",
+    "test:security": "jest tests/security --runInBand",
+    "test:coverage": "jest --coverage --runInBand"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.11.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- ===================== HEADER ===================== -->
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">Rp</span>
+        <div>
+          <h1>Expense Tracker</h1>
+          <p class="brand-sub">Catat &amp; pantau pengeluaranmu</p>
+        </div>
+      </div>
+      <button id="btn-open-form" class="btn btn-primary">+ Tambah Pengeluaran</button>
+    </header>
+
+    <main class="layout">
+      <!-- ===================== SUMMARY ===================== -->
+      <section class="summary" aria-label="Ringkasan">
+        <div class="card stat-card">
+          <span class="stat-label">Total Pengeluaran</span>
+          <span class="stat-value" id="stat-total">Rp 0</span>
+          <span class="stat-foot" id="stat-count">0 transaksi</span>
+        </div>
+        <div class="card breakdown-card">
+          <span class="stat-label">Per Kategori</span>
+          <div id="category-breakdown" class="breakdown-list">
+            <p class="empty-hint">Belum ada data</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== FILTER + LIST ===================== -->
+      <section class="card list-card">
+        <div class="list-toolbar">
+          <h2>Riwayat Pengeluaran</h2>
+          <div class="filters">
+            <select id="filter-category">
+              <option value="">Semua kategori</option>
+            </select>
+            <input type="text" id="filter-tag" placeholder="Filter tag…" />
+            <button id="btn-clear-filter" class="btn btn-ghost">Reset</button>
+          </div>
+        </div>
+
+        <div id="alert-box" class="alert" hidden></div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tanggal</th>
+                <th>Judul</th>
+                <th>Kategori</th>
+                <th>Metode</th>
+                <th class="num">Jumlah</th>
+                <th>Tags</th>
+                <th class="actions-col">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="expense-table-body">
+              <tr><td colspan="7" class="empty-row">Memuat data…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ===================== FORM MODAL ===================== -->
+  <div id="form-modal" class="modal-overlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-head">
+        <h2 id="modal-title">Tambah Pengeluaran</h2>
+        <button id="btn-close-form" class="btn-icon" aria-label="Tutup">&times;</button>
+      </div>
+
+      <form id="expense-form" novalidate>
+        <input type="hidden" id="expense-id" />
+
+        <label>
+          Judul
+          <input type="text" id="field-title" maxlength="200" required placeholder="Misal: Makan siang" />
+        </label>
+
+        <div class="field-row">
+          <label>
+            Jumlah (Rp)
+            <input type="number" id="field-amount" min="1" step="0.01" required placeholder="0" />
+          </label>
+          <label>
+            Tanggal
+            <input type="date" id="field-date" required />
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label>
+            Kategori
+            <select id="field-category" required></select>
+          </label>
+          <label>
+            Metode Pembayaran
+            <select id="field-payment"></select>
+          </label>
+        </div>
+
+        <label>
+          Deskripsi (opsional)
+          <textarea id="field-description" maxlength="1000" rows="2" placeholder="Catatan tambahan…"></textarea>
+        </label>
+
+        <label>
+          Tags (pisahkan dengan koma)
+          <input type="text" id="field-tags" placeholder="misal: kuliah, harian" />
+        </label>
+
+        <p class="form-error" id="form-error" hidden></p>
+
+        <div class="form-actions">
+          <button type="button" id="btn-cancel-form" class="btn btn-ghost">Batal</button>
+          <button type="submit" class="btn btn-primary" id="btn-submit-form">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================== DELETE CONFIRM MODAL ===================== -->
+  <div id="confirm-modal" class="modal-overlay" hidden>
+    <div class="modal modal-sm" role="dialog" aria-modal="true">
+      <h2>Hapus pengeluaran ini?</h2>
+      <p class="confirm-text">Tindakan ini tidak bisa dibatalkan.</p>
+      <div class="form-actions">
+        <button id="btn-cancel-delete" class="btn btn-ghost">Batal</button>
+        <button id="btn-confirm-delete" class="btn btn-danger">Hapus</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
