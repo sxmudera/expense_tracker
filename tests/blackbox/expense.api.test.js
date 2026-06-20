@@ -1,12 +1,3 @@
-/**
- * BLACKBOX TESTS
- * ---------------------------------------------------------
- * Exercises the API purely through HTTP, the same way
- * tests/blackbox/blackbox_test.go hit the bookmark API: only
- * status codes and response JSON shape matter here, not the
- * internal implementation. Uses createApp() + InMemoryExpenseRepository
- * so each test gets a clean, isolated, dependency-free server.
- */
 const request = require('supertest');
 const createApp = require('../../src/app');
 const InMemoryExpenseRepository = require('../../src/repository/expense.repository.memory');

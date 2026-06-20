@@ -1,19 +1,5 @@
 const { NotFoundError } = require('../errors');
 
-/**
- * InMemoryExpenseRepository
- * ---------------------------------------------------------
- * A test double that implements the exact same interface as
- * ExpenseRepository (MySQL), but stores data in a Map.
- *
- * Why this exists: in the original Go bookmark-manager project,
- * the "repository" itself was in-memory, so every test (whitebox,
- * blackbox, load, security) could run instantly without any
- * external dependency. Here the production repository is backed
- * by real MySQL, so we keep a same-shaped in-memory double for
- * fast, deterministic tests — only tests/integration talk to a
- * real MySQL database, on purpose.
- */
 class InMemoryExpenseRepository {
   constructor() {
     this.expenses = new Map();

@@ -1,14 +1,5 @@
 const { NotFoundError } = require('../errors');
 
-/**
- * ExpenseRepository (MySQL)
- * ---------------------------------------------------------
- * Data-access layer. Mirrors internal/repository/bookmark_repo.go:
- * pure CRUD against the storage engine, no business validation here
- * (that belongs to the service layer). All queries use parameterized
- * placeholders (?) — never string concatenation — to prevent SQL
- * injection (see tests/security).
- */
 class ExpenseRepository {
   /**
    * @param {import('mysql2/promise').Pool} pool

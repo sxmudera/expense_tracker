@@ -1,24 +1,3 @@
-/**
- * INTEGRATION TESTS
- * ---------------------------------------------------------
- * Mirrors tests/integration/integration_test.go: drives the
- * full create -> read -> update -> delete -> verify flow
- * through the real stack.
- *
- * UNLIKE the other suites, this one talks to a REAL MySQL
- * database (the repository under test is ExpenseRepository,
- * not the in-memory double) — that's the whole point of an
- * "integration" test: prove the service + repository + MySQL
- * driver actually work together.
- *
- * If no MySQL test database is reachable (e.g. running in a
- * sandbox/CI without MySQL installed), the suite logs a warning
- * and each test short-circuits instead of failing the whole run.
- * To actually exercise this suite:
- *   1. Create a MySQL database (see schema.sql), e.g. expense_tracker_test
- *   2. Set TEST_DB_* values in your .env (see .env.example)
- *   3. npm run test:integration
- */
 require('dotenv').config();
 const mysql = require('mysql2/promise');
 const createApp = require('../../src/app');

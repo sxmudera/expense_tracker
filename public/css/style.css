@@ -1,9 +1,3 @@
-/* ============================================================
-   Expense Tracker — "Ledger" theme
-   Palette: warm paper background, deep ink text, forest-green
-   primary action, amounts set in monospace for a receipt feel.
-   ============================================================ */
-
 :root {
   --paper: #f6f3ec;
   --surface: #ffffff;

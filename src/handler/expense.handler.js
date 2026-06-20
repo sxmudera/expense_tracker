@@ -11,7 +11,6 @@ function fail(res, status, message) {
   return res.status(status).json({ success: false, message });
 }
 
-/** Validates a route :id param. Returns a positive integer or null. */
 function parseId(raw) {
   if (!/^\d+$/.test(String(raw))) return null;
   const id = Number(raw);
@@ -29,10 +28,6 @@ function handleError(res, err) {
   return fail(res, 500, 'internal server error');
 }
 
-/**
- * Factory: creates the handler object bound to a given service.
- * Mirrors handler.NewBookmarkHandler(svc) in the Go project.
- */
 function createExpenseHandler(service) {
   return {
     async list(req, res) {

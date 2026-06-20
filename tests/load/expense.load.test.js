@@ -1,12 +1,3 @@
-/**
- * LOAD & STRESS TESTS
- * ---------------------------------------------------------
- * Lighter-weight version of tests/load/load_stress_test.go:
- * enough to catch obvious performance regressions and race
- * conditions, without needing the same request counts as the
- * original Go suite. Runs against the in-memory repository so
- * timings reflect the app/service layer, not network/DB latency.
- */
 const request = require('supertest');
 const createApp = require('../../src/app');
 const InMemoryExpenseRepository = require('../../src/repository/expense.repository.memory');

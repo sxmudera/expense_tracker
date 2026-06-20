@@ -1,12 +1,3 @@
-/**
- * SECURITY TESTS
- * ---------------------------------------------------------
- * Mirrors the intent of tests/security/security_test.go: throw
- * malicious / malformed input at the API and make sure it never
- * crashes (no 500s) and rejects what it should reject. Category
- * whitelist validation plays the same role here that URL-scheme
- * validation played in the bookmark project.
- */
 const request = require('supertest');
 const createApp = require('../../src/app');
 const InMemoryExpenseRepository = require('../../src/repository/expense.repository.memory');

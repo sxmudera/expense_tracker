@@ -1,14 +1,3 @@
-/**
- * Expense Model
- * ---------------------------------------------------------
- * Mirrors the role of internal/model/bookmark.go in the
- * original bookmark-manager project: defines the shape of
- * an Expense record, the allowed value sets, and the request
- * DTOs used by the service/handler layers.
- */
-
-// Allowed categories (equivalent to URL scheme whitelist in the
-// bookmark project's validation: http/https only).
 const ALLOWED_CATEGORIES = [
   'Makanan',
   'Transportasi',

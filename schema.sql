@@ -27,11 +27,3 @@ CREATE TABLE expenses (
   INDEX idx_category (category),
   INDEX idx_expense_date (expense_date)
 ) ENGINE = InnoDB;
-
--- ============================================================
--- Sample seed data (optional, comment out if not needed)
--- ============================================================
-INSERT INTO expenses (title, amount, category, payment_method, expense_date, description, tags) VALUES
-('Makan siang di warung', 25000.00, 'Makanan', 'Cash', CURDATE(), 'Nasi ayam + es teh', '["harian", "kuliah"]'),
-('Beli token listrik', 100000.00, 'Tagihan', 'E-Wallet', CURDATE(), NULL, '["bulanan"]'),
-('Bensin motor', 30000.00, 'Transportasi', 'Cash', CURDATE(), NULL, '["transportasi"]');

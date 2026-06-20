@@ -1,7 +1,3 @@
-/**
- * MySQL connection pool.
- * Reads credentials from environment variables (see .env.example).
- */
 const mysql = require('mysql2/promise');
 require('dotenv').config();
 

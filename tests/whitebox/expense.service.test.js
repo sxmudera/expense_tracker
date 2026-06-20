@@ -1,11 +1,3 @@
-/**
- * WHITEBOX TESTS
- * ---------------------------------------------------------
- * Targets the internal logic of the service layer directly
- * (validation rules, normalization, error paths) the same way
- * tests/whitebox/whitebox_test.go exercised BookmarkService.
- * Uses the in-memory repository so no MySQL connection is needed.
- */
 const { ExpenseService } = require('../../src/service/expense.service');
 const InMemoryExpenseRepository = require('../../src/repository/expense.repository.memory');
 const { ValidationError, NotFoundError } = require('../../src/errors');
